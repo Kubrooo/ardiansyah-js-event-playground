@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sebuah playground interaktif, modern, dan minimalis yang mendemonstrasikan 5 event dasar JavaScript dengan feedback real-time dan potongan kode yang bersih.">
+  <title>Playground Event JS — Minimalis & Modern</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="container">
+    <header>
+      <h1 id="main-title">Playground Event JS</h1>
+      <p>Tampilan interaktif yang mendemonstrasikan 5 event inti JavaScript. Berinteraksilah dengan setiap widget di bawah ini untuk melihat trigger secara langsung (real-time), log, dan kode implementasi.</p>
+    </header>
+
+    <main class="events-grid">
+
+      <!-- 1. Click Event Card -->
+      <section class="event-card" id="card-click">
+        <div class="card-header">
+          <h2 class="card-title">Event Click</h2>
+          <span class="card-tag">click</span>
+        </div>
+        <p class="card-desc">Terpicu ketika tombol perangkat penunjuk (seperti mouse atau trackpad) ditekan dan dilepas pada satu elemen.</p>
+        
+        <h3 class="section-title">Playground</h3>
+        <div class="playground click-playground">
+          <div class="counter-display" id="click-counter">0</div>
+          <button class="btn-ripple" id="ripple-btn">Klik Saya!</button>
+        </div>
+
+        <h3 class="section-title">Console Log Langsung</h3>
+        <div class="console-panel">
+          <div class="console-header">
+            <span>Log Objek Event</span>
+            <button class="console-clear" id="clear-click">Bersihkan</button>
+          </div>
+          <div class="console-logs" id="logs-click">
+            <div class="log-line info">Menunggu interaksi...</div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Potongan Kode</h3>
+        <div class="code-panel">
+          <div class="code-header">
+            <span>javascript</span>
+          </div>
+          <pre class="code-content"><code id="code-click">tombol.addEventListener('click', (e) => {
+  hitung++;
+  buatEfekRipple(e);
+});</code></pre>
+        </div>
+      </section>
+
+      <!-- 2. Input Event Card -->
+      <section class="event-card" id="card-input">
+        <div class="card-header">
+          <h2 class="card-title">Event Input</h2>
+          <span class="card-tag">input</span>
+        </div>
+        <p class="card-desc">Terpicu secara sinkron ketika nilai dari elemen &lt;input&gt;, &lt;select&gt;, atau &lt;textarea&gt; diubah.</p>
+        
+        <h3 class="section-title">Playground</h3>
+        <div class="playground input-playground">
+          <div class="input-group">
+            <label class="input-label" for="text-playground-input">Teks Dinamis</label>
+            <input type="text" id="text-playground-input" class="text-input" value="Halo JS!" placeholder="Ketik sesuatu...">
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="font-size-slider">Ukuran Font: <span id="font-size-val">24px</span></label>
+            <input type="range" id="font-size-slider" class="slider-input" min="14" max="48" value="24">
+          </div>
+          <div class="text-preview-container">
+            <div class="text-preview" id="text-playground-preview" style="font-size: 24px;">Halo JS!</div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Console Log Langsung</h3>
+        <div class="console-panel">
+          <div class="console-header">
+            <span>Log Objek Event</span>
+            <button class="console-clear" id="clear-input">Bersihkan</button>
+          </div>
+          <div class="console-logs" id="logs-input">
+            <div class="log-line info">Menunggu interaksi...</div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Potongan Kode</h3>
+        <div class="code-panel">
+          <div class="code-header">
+            <span>javascript</span>
+          </div>
+          <pre class="code-content"><code id="code-input">input.addEventListener('input', (e) => {
+  pratinjau.textContent = e.target.value;
+});</code></pre>
+        </div>
+      </section>
+
+      <!-- 3. Keydown Event Card -->
+      <section class="event-card" id="card-keydown">
+        <div class="card-header">
+          <h2 class="card-title">Event Keydown</h2>
+          <span class="card-tag">keydown</span>
+        </div>
+        <p class="card-desc">Terpicu ketika sebuah tombol keyboard ditekan. Terus terpicu jika ditekan lama. Ideal untuk shortcut sistem atau game.</p>
+        
+        <h3 class="section-title">Playground</h3>
+        <div class="playground keydown-playground">
+          <div class="keydown-target" tabindex="0" id="key-target">
+            Klik di sini, lalu tekan tombol apa saja
+          </div>
+          <div class="key-display">
+            <div class="key-card large">
+              <div class="key-card-val" id="key-val">-</div>
+              <div class="key-card-lbl">event.key</div>
+            </div>
+            <div class="key-card">
+              <div class="key-card-val" id="key-code">-</div>
+              <div class="key-card-lbl">event.code</div>
+            </div>
+            <div class="key-card">
+              <div class="key-card-val" id="key-which">-</div>
+              <div class="key-card-lbl">event.which</div>
+            </div>
+            <div class="key-card">
+              <div class="key-card-val" id="key-modifiers">-</div>
+              <div class="key-card-lbl">tombol pengubah</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Console Log Langsung</h3>
+        <div class="console-panel">
+          <div class="console-header">
+            <span>Log Objek Event</span>
+            <button class="console-clear" id="clear-keydown">Bersihkan</button>
+          </div>
+          <div class="console-logs" id="logs-keydown">
+            <div class="log-line info">Menunggu interaksi...</div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Potongan Kode</h3>
+        <div class="code-panel">
+          <div class="code-header">
+            <span>javascript</span>
+          </div>
+          <pre class="code-content"><code id="code-keydown">target.addEventListener('keydown', (e) => {
+  tampilkanPropertiTombol(e.key, e.code);
+});</code></pre>
+        </div>
+      </section>
+
+      <!-- 4. Mousemove Event Card -->
+      <section class="event-card" id="card-mousemove">
+        <div class="card-header">
+          <h2 class="card-title">Event Mousemove</h2>
+          <span class="card-tag">mousemove</span>
+        </div>
+        <p class="card-desc">Terpicu secara terus-menerus saat kursor digerakkan di atas elemen. Memungkinkan pelacakan kursor dan efek paralaks 3D.</p>
+        
+        <h3 class="section-title">Playground</h3>
+        <div class="playground" id="mouse-playground">
+          <div class="mousemove-container">
+            <div class="parallax-card" id="parallax-card">
+              <div class="card-brand">KARTU EVENT</div>
+              <div class="card-chip"></div>
+              <div class="card-number">•••• •••• •••• 2026</div>
+              <div class="card-info">
+                <span>Pemilik Kartu</span>
+                <span>Developer JS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Console Log Langsung</h3>
+        <div class="console-panel">
+          <div class="console-header">
+            <span>Log Objek Event</span>
+            <button class="console-clear" id="clear-mousemove">Bersihkan</button>
+          </div>
+          <div class="console-logs" id="logs-mousemove">
+            <div class="log-line info">Menunggu interaksi...</div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Potongan Kode</h3>
+        <div class="code-panel">
+          <div class="code-header">
+            <span>javascript</span>
+          </div>
+          <pre class="code-content"><code id="code-mousemove">kartu.addEventListener('mousemove', (e) => {
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  terapkanRotasi3D(x, y);
+});</code></pre>
+        </div>
+      </section>
+
+      <!-- 5. Drag & Drop Event Card -->
+      <section class="event-card" id="card-dragdrop">
+        <div class="card-header">
+          <h2 class="card-title">Event Drag & Drop</h2>
+          <span class="card-tag">drag & drop</span>
+        </div>
+        <p class="card-desc">Memungkinkan elemen untuk ditarik (drag) di halaman dan menentukan area peletakan (drop) elemen tersebut dengan aman.</p>
+        
+        <h3 class="section-title">Playground</h3>
+        <div class="playground drag-playground">
+          <div class="drag-column" id="col-todo">
+            <div class="column-title">Tugas Baru</div>
+            <div class="drag-item" draggable="true" id="item-1">
+              <div class="item-dot"></div>
+              <span>Pelajari Event Loop</span>
+            </div>
+            <div class="drag-item" draggable="true" id="item-2">
+              <div class="item-dot"></div>
+              <span>Pahami DOM API</span>
+            </div>
+            <div class="drag-item" draggable="true" id="item-3">
+              <div class="item-dot"></div>
+              <span>Refaktorkan Kode CSS</span>
+            </div>
+          </div>
+          <div class="drag-column" id="col-done">
+            <div class="column-title">Selesai</div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Console Log Langsung</h3>
+        <div class="console-panel">
+          <div class="console-header">
+            <span>Log Objek Event</span>
+            <button class="console-clear" id="clear-dragdrop">Bersihkan</button>
+          </div>
+          <div class="console-logs" id="logs-dragdrop">
+            <div class="log-line info">Menunggu interaksi...</div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Potongan Kode</h3>
+        <div class="code-panel">
+          <div class="code-header">
+            <span>javascript</span>
+          </div>
+          <pre class="code-content"><code id="code-dragdrop">item.addEventListener('dragstart', handleDragStart);
+kolom.addEventListener('dragover', preventDefault);
+kolom.addEventListener('drop', handleDrop);</code></pre>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
